@@ -7,6 +7,7 @@ const notFoundHandler = require('./middleware/404.js');
 const errorHandler = require('./middleware/500.js');
 const authRoutes = require('./auth/routes/auth-router.js')
 const v1Routes = require('./api/v1.js');
+const v2routes = require('./api/v2.js');
 
 const app = express();
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }));
 // Route Definitions
 app.use(authRoutes);
 app.use('/api/v1/', v1Routes);
+app.use('/api/v2/', v2routes);
 
 // 404 / not found handler
 app.use('*', notFoundHandler);
